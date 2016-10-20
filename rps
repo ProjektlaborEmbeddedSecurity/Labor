@@ -9,10 +9,14 @@ pragma solidity ^0.4.2;
 contract ScissorsPaperRock {
 
     address private player1 = 0;
-    string private value_player1 = "";
+    uint256 private value_player1 = sha3("");
     
     address private player2 = 0;
-    string private value_player2 = "";
+    uint256 private value_player2 = sha3("");
+    
+    uint256 private rock = sha3("rock");
+    uint256 private scissors = sha3("scissors");
+    uint256 private paper = sha3("paper");
     
 
     function ScissorsPaperRock() {
@@ -22,19 +26,20 @@ contract ScissorsPaperRock {
 
     function play(string value)
     {
-        if(sha3(value) != sha3("scissors") && sha3(value) != sha3("rock") && sha3(value) != sha3("paper"))
+        uint256 hashedValue = sha3(value);
+        if(hashedValue != rock && hashedValue != scissors && hashedValue != paper)
         {
             throw;
         }
         if(player1 == 0)
         {
             player1 = msg.sender;
-            value_player1 = value;
+            value_player1 = hashedValue;
         }
         else if(player2 == 0)
         {
             player2 = msg.sender;
-            value_player2 = value;
+            value_player2 = hashedValue;
             //Funktionsaufruf Auswertung
             checkWinner();
         }
@@ -42,7 +47,14 @@ contract ScissorsPaperRock {
 
     function checkWinner()
     {
-        
+        //Player 1 spielt Schere
+        if(value_player1 == scissors)   
+        {
+            if(value_player2 == scissors)
+            {
+                
+            }
+        }
     }
 
 }
