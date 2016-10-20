@@ -1,0 +1,48 @@
+Schere Stein Papier
+-------------------
+
+
+
+
+------------------- Source Code --------------------------
+pragma solidity ^0.4.2;
+contract ScissorsPaperRock {
+
+    address private player1 = 0;
+    string private value_player1 = "";
+    
+    address private player2 = 0;
+    string private value_player2 = "";
+    
+
+    function ScissorsPaperRock() {
+        
+    }
+
+
+    function play(string value)
+    {
+        if(sha3(value) != sha3("scissors") && sha3(value) != sha3("rock") && sha3(value) != sha3("paper"))
+        {
+            throw;
+        }
+        if(player1 == 0)
+        {
+            player1 = msg.sender;
+            value_player1 = value;
+        }
+        else if(player2 == 0)
+        {
+            player2 = msg.sender;
+            value_player2 = value;
+            //Funktionsaufruf Auswertung
+            checkWinner();
+        }
+    }
+
+    function checkWinner()
+    {
+        
+    }
+
+}
