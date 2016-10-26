@@ -5,6 +5,10 @@
 ------------------- address--------------------------
 "0xcae6727f7dc67b1c26c97e7e6fc2d6ba42e5b657"
 
+-------------------- Event --------------------------
+
+> var rpsEvent = <contract>.Winner()
+> rpsEvent.watch(function(error, result){if(!error)console.log(result.args.value + " Gewinner")});
 
 -----------------Example Call-------------------------
 
