@@ -1,32 +1,26 @@
-Schere Stein Papier
--------------------
-
-
-
-
-------------------- Source Code --------------------------
 pragma solidity ^0.4.2;
 contract ScissorsPaperRock {
 
     address private player1 = 0;
-    uint256 private value_player1 = sha3("");
+    bytes32 private value_player1 = sha3("");
     
     address private player2 = 0;
-    uint256 private value_player2 = sha3("");
+    bytes32 private value_player2 = sha3("");
     
-    uint256 private rock = sha3("rock");
-    uint256 private scissors = sha3("scissors");
-    uint256 private paper = sha3("paper");
+    bytes32 private rock = sha3("rock");
+    bytes32 private scissors = sha3("scissors");
+    bytes32 private paper = sha3("paper");
     
 
     function ScissorsPaperRock() {
         
     }
 
+    event 
 
     function play(string value)
     {
-        uint256 hashedValue = sha3(value);
+        bytes32 hashedValue = sha3(value);
         if(hashedValue != rock && hashedValue != scissors && hashedValue != paper)
         {
             throw;
@@ -41,20 +35,78 @@ contract ScissorsPaperRock {
             player2 = msg.sender;
             value_player2 = hashedValue;
             //Funktionsaufruf Auswertung
-            checkWinner();
+            address winner = checkWinner();
+            
+            if(winner != 0)
+            {
+                //Gewinner küren
+            }
+            else
+            {
+                //Unentschieden
+            }
         }
     }
 
-    function checkWinner()
+    function checkWinner() returns (address)
     {
+        address winner = 0;
+        
         //Player 1 spielt Schere
         if(value_player1 == scissors)   
         {
             if(value_player2 == scissors)
             {
-                
+                //Draw   
+            }
+            else if(value_player2 == rock)
+            {
+                //Winner Player 2
+                winner = player2;
+            }
+            else if(value_player2 == paper)
+            {
+                //Winner Player 1
+                winner = player1;
             }
         }
+        else if(value_player1 == rock)
+        {
+            if(value_player2 == scissors)
+            {
+                //Winner Player 1   
+                winner = player1;
+            }
+            else if(value_player2 == rock)
+            {
+                //Draw
+            }
+            else if(value_player2 == paper)
+            {
+                //Winner Player 2
+                winner = player2;
+            }
+        }
+        else if(value_player1 == paper)
+        {
+            if(value_player2 == scissors)
+            {
+                //Winner Player 2   
+                winner = player2;
+            }
+            else if(value_player2 == rock)
+            {
+                //Winner Player 1
+                winner = player1;
+            }
+            else if(value_player2 == paper)
+            {
+                //Draw
+            }
+        }
+        return winner;
     }
+    
+    
 
 }
