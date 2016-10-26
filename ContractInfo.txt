@@ -1,0 +1,6 @@
+------------------- Interface--------------------------
+
+[{"constant":false,"inputs":[{"name":"x","type":"address"}],"name":"toString","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"string"}],"name":"play","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"checkWinner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner","type":"address"}],"name":"Winner","type":"event"}]
+
+------------------- address--------------------------
+"0xcae6727f7dc67b1c26c97e7e6fc2d6ba42e5b657"
