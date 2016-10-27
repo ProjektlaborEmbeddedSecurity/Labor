@@ -11,9 +11,9 @@
 > var rpsEvent = <contract>.Winner()
 > rpsEvent.watch(function(error, result){if(!error)console.log(result.args.winner + " Gewinner")});
 
------------------Example Call-------------------------VERALTET
+-----------------Example Call-------------------------
 
-var rps = eth.contract([{"constant":false,"inputs":[{"name":"x","type":"address"}],"name":"toString","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"string"}],"name":"play","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"checkWinner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner","type":"address"}],"name":"Winner","type":"event"}]).at("0xcae6727f7dc67b1c26c97e7e6fc2d6ba42e5b657");
+var rps = eth.contract([{"constant":false,"inputs":[{"name":"x","type":"address"}],"name":"toString","outputs":[{"constant":false,"inputs":[{"name":"x","type":"address"}],"name":"toString","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"string"}],"name":"play","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"checkWinner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"reset","outputs":[],"payable":false,"type":"function"},{"inputs":[],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winner","type":"address"}],"name":"Winner","type":"event"}].at("0x0f1eead66c31bfcd193f95c1c5bef50daa0690d8");
 
 ---------------Example Play -------------------------
 --Acount must be unlocked-- 
