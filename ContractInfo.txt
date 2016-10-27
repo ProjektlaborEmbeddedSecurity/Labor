@@ -9,7 +9,7 @@
 -------------------- Event --------------------------
 
 > var rpsEvent = <contract>.Winner()
-> rpsEvent.watch(function(error, result){if(!error)console.log(result.args.value + " Gewinner")});
+> rpsEvent.watch(function(error, result){if(!error)console.log(result.args.winner + " Gewinner")});
 
 -----------------Example Call-------------------------VERALTET
 
